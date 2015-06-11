@@ -5,6 +5,26 @@ Acme commerce Ã¨ il sistema informativo sul web per la gestione degli ordini, ut
 _NB. TOCCA MODIFICARE LE SPECIFICHE, Questo file riporta le informazioni del powerpoint del professore!_
 
 ##CASI D'USO:
+####Caso d'uso UC1: registrazione nuovo utente 
+ **Attore primario:** utente non registrato.  
+ **Pre-Condizioni**: un utente sta utilizzando il sistema.  
+ **Scenario principale di successo:**  
+ **1.** L'utente vuole registrarsi presso il sistema.  
+ **2.** L'utente sceglie l'attività  "signUp".  
+ **3.** Il sistema mostra la form per inserire i dati.  
+ **4.** L'utente inserisce l'email.  
+ **5.** L'utente inserisce la password.  
+ **6.** L'utente inserisce il proprio nome.  
+ **7.** L'utente inserisce il proprio cognome.  
+ **8.** L'utente inserisce la propria data di nascita.  
+ **4.** L'utente conferma l'inserimento.    
+ **9.** Il sistema mostra un riepilogo.  
+ _L'utente ripete i passi 3-5 un numero indefinito di volte_  
+ **Post-Condizioni:** viene creato un nuovo utente u, u viene inserito nella lista utenti.  
+ 
+- - - -   
+
+
 ####Caso d'uso UC1: consulta listino 
  **Attore primario:** utente non registrato.  
  **Pre-Condizioni**: un utente sta utilizzando il sistema.  
