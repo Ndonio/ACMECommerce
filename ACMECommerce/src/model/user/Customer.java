@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import model.core.Address;
+
 @Entity
 public class Customer {
 
@@ -31,7 +33,9 @@ public class Customer {
 	@Temporal(value=TemporalType.TIMESTAMP)
 	private Date registrationDate;
 	
-	//TODO: METTERE DENTRO L'ADDRESS!
+	@Column
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+	private Address address;
 	
 	
 	public Customer(){}
@@ -154,6 +158,20 @@ public class Customer {
 	 */
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 	

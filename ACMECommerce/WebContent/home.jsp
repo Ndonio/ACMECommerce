@@ -20,8 +20,16 @@
 	<f:view>
 		<h1>Benvenuto in ACMECommerce!</h1>
 
-<li><a href='<c:url value="/faces/signUpCustomer.jsp" />'>
-							signUp! </a></li>
+		<li><a href='<c:url value="/faces/signUpCustomer.jsp" />'>
+				signUp! </a></li>
+
+		<li><h:form>
+				<h:commandLink action="#{productController.listProducts}"
+					value="List all Products" />
+			</h:form></li>
+
+		<li><a href='<c:url value="/faces/newProduct.jsp" />'> insert
+				a new Product </a></li>
 
 	</f:view>
 </body>
