@@ -19,6 +19,13 @@
 		<div>Code: ${productController.product.code}</div>
 		<div>Price: ${productController.product.price}</div>
 		<div>Description: ${productController.product.description}</div>
+		
+		<div>
+				<h:form>
+				<h:commandLink action="#{productController.listProducts}"
+					value="torna al catalogo" />
+			</h:form>
+		</div>
 
 		<div>
 			<a href='<c:url value="/faces/home.jsp" />'> torna alla home! </a>

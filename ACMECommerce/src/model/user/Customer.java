@@ -49,13 +49,14 @@ public class Customer {
 	 * @param registrationDate
 	 */
 	public Customer(String firstname, String lastname, Date birthday, String email,
-			String password) {
+			String password, Address address) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthday = birthday;
 		this.email = email;
 		this.password = password;
 		this.registrationDate = new Date();
+		this.address = address;
 	}
 	
 	/**

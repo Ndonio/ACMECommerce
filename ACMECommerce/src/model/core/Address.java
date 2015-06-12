@@ -130,6 +130,12 @@ public class Address {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return street + ", " + city + ", "
+				+ region + ", " + zipcode + ", " + state;
+	}
+
 	/**
 	 * Returns a hash code for this Address. The hash code for a Address object is computed as the sum of the 
 	 * hash code of his properties.

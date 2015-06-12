@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedProperty;
 
 import java.util.Date;
 
+import model.core.Address;
 import model.user.Customer;
 import model.user.CustomerFacade;
 
@@ -22,11 +23,17 @@ public class CustomerController {
 	private Date birthday;
 	private String email;
 	private String password;
+	private String street;
+	private String city;
+	private String region;
+	private String zipcode;
+	private String state;
 	
 	private Customer customer;
 	
 	public String createCustomer(){
-		this.customer = customerFacade.createCustomer(firstname, lastname, birthday, email, password);
+		Address address = new Address(street,city,region,zipcode,state);
+		this.customer = customerFacade.createCustomer(firstname, lastname, birthday, email, password, address);
 		return "customerHome";
 	}
 
@@ -126,6 +133,46 @@ public class CustomerController {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	/**

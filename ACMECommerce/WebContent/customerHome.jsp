@@ -20,6 +20,7 @@
 		<div>Cognome: ${customerController.customer.lastname}</div>
 		<div>Data Nascita: ${customerController.customer.birthday}</div>
 		<div>Email: ${customerController.customer.email}</div>
+		<div>Indirizzo: ${customerController.customer.address}</div>
 
 		<div>
 			<a href='<c:url value="/faces/home.jsp" />'> torna alla home! </a>

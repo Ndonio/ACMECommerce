@@ -52,6 +52,43 @@
 					requiredMessage="Password is mandatory" id="password" />
 				<h:message for="password" />
 			</div>
+			
+			<h2>Inserisci i dati relativi al tuo indirizzo</h2>
+				
+				<div>
+					Street:
+					<h:inputText value="#{customerController.street}" required="true"
+						requiredMessage="Street is mandatory" id="street" />
+					<h:message for="street" />
+				</div>
+				
+				<div>
+					City:
+					<h:inputText value="#{customerController.city}" required="true"
+						requiredMessage="City is mandatory" id="city" />
+					<h:message for="city" />
+				</div>
+				
+				<div>
+					Region:
+					<h:inputText value="#{customerController.region}" required="true"
+						requiredMessage="Region is mandatory" id="region" />
+					<h:message for="region" />
+				</div>
+				
+				<div>
+					Zip Code:
+					<h:inputText value="#{customerController.zipcode}" required="true"
+						requiredMessage="Zip Code is mandatory" id="zipcode" />
+					<h:message for="zipcode" />
+				</div>
+				
+				<div>
+					State:
+					<h:inputText value="#{customerController.state}" required="true"
+						requiredMessage=" State is mandatory" id="state" />
+					<h:message for="state" />
+				</div>
 
 			<div>
 				<h:commandButton value="Sign up"
