@@ -174,6 +174,12 @@ public class Customer {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public void checkPassword(String password) throws Exception {
+		boolean trueCond = this.password.equals(password);
+		if(!trueCond)
+			throw new Exception();
+	}
 	
 	
 	

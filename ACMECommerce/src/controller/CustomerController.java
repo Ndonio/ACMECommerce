@@ -34,6 +34,13 @@ public class CustomerController {
 	public String createCustomer(){
 		Address address = new Address(street,city,region,zipcode,state);
 		this.customer = customerFacade.createCustomer(firstname, lastname, birthday, email, password, address);
+		return "customerSignedUp";
+	}
+	
+	public String loginCustomer(){
+		this.customer = this.customerFacade.retriveCustomer(email, password);
+		if(this.customer==null)
+			return "errorPage";
 		return "customerHome";
 	}
 
