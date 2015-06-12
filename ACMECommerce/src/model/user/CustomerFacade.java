@@ -1,10 +1,10 @@
 package model.user;
 
-import java.util.Date;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.Date;
 
 @Stateless(name="customerFacade")
 public class CustomerFacade {
