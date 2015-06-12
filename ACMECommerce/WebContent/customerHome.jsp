@@ -12,19 +12,22 @@
 </head>
 <body>
 	<f:view>
-		<h1>Benvenuto in ACMECommerce,
-			${customerController.customer.firstname}</h1>
+		<h1>Bentornato cliente: ${customerController.customer.firstname}</h1>
 
-		<h2>Dettagli della registrazione:</h2>
-		<div>Nome: ${customerController.customer.firstname}</div>
-		<div>Cognome: ${customerController.customer.lastname}</div>
-		<div>Data Nascita: ${customerController.customer.birthday}</div>
-		<div>Email: ${customerController.customer.email}</div>
-		<div>Indirizzo: ${customerController.customer.address}</div>
-
+		<h2>COSA VUOI FARE:</h2>
+		
+		<div>
+			<p> effettua un  ordine (DA IMPLEMENTARE) </p>
+		</div>
+		
+		<div>
+			<p> consulta i tuoi ordini (DA IMPLEMENTARE) </p>
+		</div>
+		
 		<div>
 			<a href='<c:url value="/faces/home.jsp" />'> torna alla home! </a>
 		</div>
+
 	</f:view>
 </body>
 </html>
