@@ -5,95 +5,96 @@ Acme commerce √® il sistema informativo sul web per la gestione degli ordini, ut
 _NB. TOCCA MODIFICARE LE SPECIFICHE, Questo file riporta le informazioni del powerpoint del professore!_
 
 ##CASI D'USO:
-####Caso d'uso UC1: registrazione nuovo utente 
+
+####Caso d'uso UC1: consulta listino (completato)
  **Attore primario:** utente non registrato.  
  **Pre-Condizioni**: un utente sta utilizzando il sistema.  
- **Scenario principale di successo:**  
- **1.** L'utente vuole registrarsi presso il sistema.  
- **2.** L'utente sceglie l'attivit‡† "signUp".  
- **3.** Il sistema mostra la form per inserire i dati.  
- **4.** L'utente inserisce l'email.  
- **5.** L'utente inserisce la password.  
- **6.** L'utente inserisce il proprio nome.  
- **7.** L'utente inserisce il proprio cognome.  
- **8.** L'utente inserisce la propria data di nascita.  
- **4.** L'utente conferma l'inserimento.    
- **9.** Il sistema mostra un riepilogo.  
- _L'utente ripete i passi 3-5 un numero indefinito di volte_  
- **Post-Condizioni:** viene creato un nuovo utente u, u viene inserito nella lista utenti.  
- 
-- - - -   
-
-
-####Caso d'uso UC1: consulta listino 
- **Attore primario:** utente non registrato.  
- **Pre-Condizioni**: un utente sta utilizzando il sistema.  
- **Scenario principale di successo:**  
- **1.** L'utente vuole consultare il catalogo prodotti.  
- **2.** L'utente sceglie l'attivit√† "Consulta Catalogo".  
- **3.** Il sistema mostra il catalogo generale con i vari prodotti.  
- **4.** L'utente seleziona un prodotto.  
- **5.** Il sistema mostra i dettagli del prodotto scelto.  
- _L'utente ripete i passi 3-5 un numero indefinito di volte_  
+ **Scenario principale di successo:**
+   **1.** L'utente vuole consultare il catalogo prodotti.
+   **2.** L'utente sceglie l'attivit‡† "Consulta Catalogo".
+   **3.** Il sistema mostra il catalogo generale con i vari prodotti.
+   **4.** L'utente seleziona un prodotto.
+   **5.** Il sistema mostra i dettagli del prodotto scelto.
+   _L'utente ripete i passi 3-5 un numero indefinito di volte_  
  **Post-Condizioni:** nessuna.  
  
 - - - -   
 
 ####Caso d'uso UC2: effettua ordine. (da migliorare)
 **Attore primario:** cliente (utente registrato).  
-**Precondizioni:** il cliente √® identificato e autenticato.  
-**Scenario principale di successo:**  
-**1.** Il cliente crea un ordine.  
-**2.** Il cliente consulta il catalogo dei prodotti.  
-**3.** Il cliente sceglie un prodotto e aggiunge codice e quantit√† del prodotto scelto all'ordine.  
-**4.** Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino.  
-**5.** Il sistema registra la riga ordine.  
-**6.** Il cliente ripete i due passi precedenti finch√® necessario.  
-**7.** Il cliente "chiude" l'ordine.  
-**8.** Il sistema registra l'ordine.  
+**Precondizioni:** il cliente Ë identificato e autenticato.  
+**Scenario principale di successo:**
+  **1.** Il cliente crea un ordine.
+  **2.** Il cliente consulta il catalogo dei prodotti.
+  **3.** Il cliente sceglie un prodotto e aggiunge codice e quantit√† del prodotto scelto all'ordine.
+  **4.** Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino.
+  **5.** Il sistema registra la riga ordine.
+  **6.** Il cliente ripete i due passi precedenti finch√® necessario.
+  **7.** Il cliente "chiude" l'ordine.
+  **8.** Il sistema registra l'ordine.  
 
 - - - -
 
 ####Caso d'uso UC3: consulta i propri ordini. (da migliorare)
 **Attore primario:** cliente.  
-**Precondizioni:** il cliente √® identificato e autenticato.  
+**Precondizioni:** il cliente Ë identificato e autenticato.  
 **Scenario principale:**.
   **1.** Il cliente consulta l'elenco dei propri ordini.
   **2.** Il sistema mostra al cliente l'elenco dei suoi ordini.
   **3.** Il cliente chiede il dettaglio di un ordine.
   **4.** Il sistema mostra il dettaglio dell'ordine.
-  **5.** Il cliente ripete i due passi precedenti finch√® necessario.  
+  **5.** Il cliente ripete i due passi precedenti finchË necessario.  
   
 - - - - 
 
-####Caso d'uso UC4: inserimento prodotti nel catalogo. (da migliorare)
+####Caso d'uso UC4: inserimento prodotti nel catalogo. (completato)
 **Attore primario:** amministrazione.  
-**Precondizioni:** l'amministratore √® identificato e autenticato.  
-**Scenario principale:**  
-**1.** L'amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli.  
-**2.** Il sistema registra il prodotto.  
-**3.** I punti precedenti vengono ripetuti fino a che necessario.
+**Precondizioni:** l'amministratore Ë identificato e autenticato.  
+**Scenario principale:**
+  **1.** L'amministratore sceglie l'attivit‡ "inserisci nuovo prodotto"
+  **2** l'amministratore inserisce il nome del nuovo prodotto
+  **3** l'amministratore inserisce il codice del nuovo prodotto
+  **4** l'amministratore inserisce il prezzo del nuovo prodotto
+  **5** l'amministratore inserisce una descrizione per il prodotto
+  **6.** l'amministratore segnala il completamento dell'inserimento
+  **7.** il sistema mostra un riepilogo del prodotto inserito.
+  _L'utente ripete i passi 1-7 un numero indefinito di volte_  
 
 - - - -
 
 ####Caso d'uso UC5: recupera indirizzo cliente. (da migliorare)
 **Attore primario:** amministrazione.  
-**Precondizioni:** l'amministratore √® identificato e autenticato.  
-**Scenario principale:**  
-**1.** L'amministratore fornisce l'id di un ordine .  
-**2.** Il sistema mostra all'amministratore i dati del cliente che ha effettuato l'ordine.
+**Precondizioni:** l'amministratore Ë identificato e autenticato.  
+**Scenario principale:**
+  **1.** L'amministratore fornisce l'id di un ordine .
+  **2.** Il sistema mostra all'amministratore i dati del cliente che ha effettuato l'ordine.
 
 - - - - 
 
 ####Caso d'uso UC6: evasione ordine (da migliorare)
 **Attore primario:** amministrazione.  
 **Precondizioni:** l'amministratore √® identificato e autenticato.  
-**Scenario principale:**  
-**1.** Il sistema presenta all'amministratore gli ordini chiusi, ma non evasi.  
-**2.** L'amministratore sceglie un ordine.  
-**3.** Il sistema evade l'ordine: aggiorna l'ordine inserendo la data di spedizione e aggiorna la quantit√† dei prodotti in magazzino (sottraendo la quantitÔøΩ di prodotti usati per l'ordine).  
-**Eccezioni:** alcuni prodotti potrebbero non essere presenti in magazzino nella quantit√† specificata dall'ordine.
+**Scenario principale:**
+  **1.** Il sistema presenta all'amministratore gli ordini chiusi, ma non evasi.
+  **2.** L'amministratore sceglie un ordine.
+  **3.** Il sistema evade l'ordine: aggiorna l'ordine inserendo la data di spedizione e aggiorna la quantit√† dei prodotti in magazzino (sottraendo la quantitÔøΩ di prodotti usati per l'ordine).
+  **Eccezioni:** alcuni prodotti potrebbero non essere presenti in magazzino nella quantit√† specificata dall'ordine.
            In questo caso l'ordine rimane in sospeso.
+
 _ _ _ _ _
 
-   
+####Caso d'uso UC7: registrazione nuovo utente (completato)
+ **Attore primario:** utente non registrato.  
+ **Pre-Condizioni**: un utente sta utilizzando il sistema.  
+ **Scenario principale di successo:**
+   **1.** L'utente vuole registrarsi presso il sistema.
+   **2.** L'utente sceglie l'attivit‡† "signUp".
+   **3.** Il sistema mostra la form per inserire i dati.
+   **4.** L'utente inserisce l'email.
+   **5.** L'utente inserisce la password.
+   **6.** L'utente inserisce il proprio nome.
+   **7.** L'utente inserisce il proprio cognome.
+   **8.** L'utente inserisce la propria data di nascita.
+   **4.** L'utente conferma l'inserimento.
+   **9.** Il sistema mostra un riepilogo.   
+- - - -  
