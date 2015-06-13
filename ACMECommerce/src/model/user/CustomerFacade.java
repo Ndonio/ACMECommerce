@@ -21,9 +21,9 @@ public class CustomerFacade {
 		return customer;
 	}
 
-	public Customer retriveCustomer(String email, String password) {
+	public Customer retrieveCustomer(String email, String password) {
 		Customer customer;
-		Query q= this.em.createQuery("SELECT a FROM Customer a WHERE a.email =:email", Customer.class);
+		Query q= this.em.createQuery("SELECT c FROM Customer c WHERE c.email =:email", Customer.class);
 		q.setParameter("email", email);
 		try{
 			customer =(Customer)q.getSingleResult();
@@ -34,6 +34,16 @@ public class CustomerFacade {
 			customer = null;
 		}	
 		return customer;
+	}
+	
+	public Customer findCustomer(Long id){
+		return this.em.find(Customer.class, id); 	
+	}
+	
+	public Customer removeAdmin(Long id){
+		Customer c = findCustomer(id);
+		this.em.remove(c);
+		return c;
 	}
 }
 

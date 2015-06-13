@@ -12,22 +12,30 @@
 </head>
 <body>
 	<f:view>
-		<h1>Bentornato cliente: ${customerController.customer.firstname}</h1>
+	
+		<h:form>
+		
+		<h1>Bentornato in ACMECommerce: ${customerSessionManager.currentCustomer.email}</h1>
 
-		<h2>COSA VUOI FARE:</h2>
+		<h2>Cosa Vuoi Fare?</h2>
 		
 		<div>
-			<p> effettua un  ordine (DA IMPLEMENTARE) </p>
+		    <a href='<c:url value="/faces/productList.jsp" />'> visualizza i prodotti </a>
 		</div>
 		
 		<div>
-			<p> consulta i tuoi ordini (DA IMPLEMENTARE) </p>
+			<p> visualizza i tuoi ordini </p>
 		</div>
 		
 		<div>
-			<a href='<c:url value="/faces/home.jsp" />'> torna alla home! </a>
+			<h:commandButton value="Logout" action="#{customerController.logoutCustomer}" />
+		</div>
+		
+		<div>
+			<h:commandButton value="Logout" action="#{customerController.logoutCustomer}" />
 		</div>
 
+		</h:form>
 	</f:view>
 </body>
 </html>

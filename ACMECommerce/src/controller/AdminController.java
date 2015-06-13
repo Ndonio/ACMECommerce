@@ -20,7 +20,6 @@ public class AdminController {
 	
 	private Admin admin;
 	
-	//TODO NEW
 	@ManagedProperty(value = "#{adminSessionManager}")
 	private AdminSessionManager session;
 	
@@ -38,7 +37,7 @@ public class AdminController {
 		return "adminHome";
 	}
 	
-	//TODO NEW!
+
 	public String logoutAdmin(){
 		this.session.logout();
 		return "home";
@@ -114,7 +113,6 @@ public class AdminController {
 		this.admin = admin;
 	}
 
-	/*TODO NEW!!! */
 	/**
 	 * @return the session
 	 */

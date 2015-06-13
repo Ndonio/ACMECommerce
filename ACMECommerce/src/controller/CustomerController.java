@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import java.util.Date;
 
 import model.core.Address;
+import model.core.AddressFacade;
 import model.user.Customer;
 import model.user.CustomerFacade;
 
@@ -16,6 +17,9 @@ public class CustomerController {
 	@EJB(beanName="customerFacade")
 	private CustomerFacade customerFacade;
 	
+	@EJB(beanName="addressFacade")
+	private AddressFacade addressFacade;
+	
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstname;
@@ -23,6 +27,7 @@ public class CustomerController {
 	private Date birthday;
 	private String email;
 	private String password;
+	
 	private String street;
 	private String city;
 	private String region;
@@ -30,18 +35,29 @@ public class CustomerController {
 	private String state;
 	
 	private Customer customer;
+	private Address address;
+	
+	@ManagedProperty(value = "#{customerSessionManager}")
+	private CustomerSessionManager customerSession;
 	
 	public String createCustomer(){
-		Address address = new Address(street,city,region,zipcode,state);
-		this.customer = customerFacade.createCustomer(firstname, lastname, birthday, email, password, address);
-		return "customerSignedUp";
+		this.address = new Address(street,city,region,zipcode,state);
+		this.customer = this.customerFacade.createCustomer(firstname, lastname, birthday, email, password, address);
+        this.customerSession.login(customer);
+        return "customerHome";
 	}
 	
 	public String loginCustomer(){
-		this.customer = this.customerFacade.retriveCustomer(email, password);
+		this.customer = this.customerFacade.retrieveCustomer(email, password);
 		if(this.customer==null)
-			return "errorPage";
+			return "loginCustomer";
+		this.customerSession.login(customer);
 		return "customerHome";
+	}
+	
+	public String logoutCustomer(){
+		this.customerSession.logout();
+		return "home";
 	}
 
 	/**
@@ -56,6 +72,20 @@ public class CustomerController {
 	 */
 	public void setCustomerFacade(CustomerFacade customerFacade) {
 		this.customerFacade = customerFacade;
+	}
+
+	/**
+	 * @return the addressFacade
+	 */
+	public AddressFacade getAddressFacade() {
+		return addressFacade;
+	}
+
+	/**
+	 * @param addressFacade the addressFacade to set
+	 */
+	public void setAddressFacade(AddressFacade addressFacade) {
+		this.addressFacade = addressFacade;
 	}
 
 	/**
@@ -142,42 +172,72 @@ public class CustomerController {
 		this.password = password;
 	}
 
+	/**
+	 * @return the street
+	 */
 	public String getStreet() {
 		return street;
 	}
 
+	/**
+	 * @param street the street to set
+	 */
 	public void setStreet(String street) {
 		this.street = street;
 	}
 
+	/**
+	 * @return the city
+	 */
 	public String getCity() {
 		return city;
 	}
 
+	/**
+	 * @param city the city to set
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * @return the region
+	 */
 	public String getRegion() {
 		return region;
 	}
 
+	/**
+	 * @param region the region to set
+	 */
 	public void setRegion(String region) {
 		this.region = region;
 	}
 
+	/**
+	 * @return the zipcode
+	 */
 	public String getZipcode() {
 		return zipcode;
 	}
 
+	/**
+	 * @param zipcode the zipcode to set
+	 */
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 
+	/**
+	 * @return the state
+	 */
 	public String getState() {
 		return state;
 	}
 
+	/**
+	 * @param state the state to set
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
@@ -194,6 +254,34 @@ public class CustomerController {
 	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	/**
+	 * @return the customerSession
+	 */
+	public CustomerSessionManager getCustomerSession() {
+		return customerSession;
+	}
+
+	/**
+	 * @param customerSession the customerSession to set
+	 */
+	public void setCustomerSession(CustomerSessionManager customerSession) {
+		this.customerSession = customerSession;
 	}
 	
 }
