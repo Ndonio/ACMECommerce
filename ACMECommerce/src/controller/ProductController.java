@@ -27,7 +27,7 @@ public class ProductController {
 	
 	public String createProduct(){
 		this.product = this.productFacade.createProduct(name, code, price, description);
-	    return "productView";
+	    return "productViewAdmin";
 	}
 	
 	public String listProducts(){

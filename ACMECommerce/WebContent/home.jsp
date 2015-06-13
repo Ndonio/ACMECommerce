@@ -21,11 +21,14 @@
 		<h1>Benvenuto in ACMECommerce!</h1>
 
 		<li><a href='<c:url value="/faces/signUpCustomer.jsp" />'>
-				signUp! </a></li>
-		<li><a href='<c:url value="/faces/loginAdmin.jsp" />'> login
-				Admin </a></li>
+				signUp Customer </a></li>
+		
 		<li><a href='<c:url value="/faces/loginCustomer.jsp" />'> login
-				Customer </a></li>				
+				Customer </a></li>		
+		
+		<li><a href='<c:url value="/faces/loginAdmin.jsp" />'> login
+				Admin </a></li>		
+				
 		<li><h:form>
 				<h:commandLink action="#{productController.listProducts}"
 					value="List all Products" />

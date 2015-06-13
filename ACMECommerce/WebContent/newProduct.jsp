@@ -46,10 +46,16 @@
 					action="#{productController.createProduct}" />
 			</div>
 
-			<div>
-				<a href='<c:url value="/faces/home.jsp" />'> return home! </a>
-			</div>
-
+		</h:form>
+		
+		<h:form>
+		<div>
+			<h:commandButton value="Logout" action="#{adminController.logoutAdmin}" />
+		    </div>
+		    
+		    <div>
+			<h:commandButton value="Annulla Inserimento" action="adminHome" />
+		    </div>
 		</h:form>
 
 	</f:view>

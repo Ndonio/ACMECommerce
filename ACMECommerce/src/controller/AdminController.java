@@ -20,16 +20,28 @@ public class AdminController {
 	
 	private Admin admin;
 	
+	//TODO NEW
+	@ManagedProperty(value = "#{adminSessionManager}")
+	private AdminSessionManager session;
+	
 	public String createAdmin(){
 		this.admin = this.adminFacade.createAdmin(email, password);
+		this.session.login(admin);//TODO NEW!
 		return "adminHome";
 	}
 	
 	public String loginAdmin(){
 		this.admin = this.adminFacade.retrieveAdmin(email, password);
 		if(this.admin==null)
-			return "errorPage";
+			return "loginAdmin";
+		this.session.login(admin);//TODO NEW!
 		return "adminHome";
+	}
+	
+	//TODO NEW!
+	public String logoutAdmin(){
+		this.session.logout();
+		return "home";
 	}
 
 	/**
@@ -100,6 +112,21 @@ public class AdminController {
 	 */
 	public void setAdmin(Admin admin) {
 		this.admin = admin;
+	}
+
+	/*TODO NEW!!! */
+	/**
+	 * @return the session
+	 */
+	public AdminSessionManager getSession() {
+		return session;
+	}
+
+	/**
+	 * @param session the session to set
+	 */
+	public void setSession(AdminSessionManager session) {
+		this.session = session;
 	}
 
 }

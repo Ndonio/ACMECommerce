@@ -12,9 +12,12 @@
 </head>
 <body>
 	<f:view>
-		<h1>Benvenuto operatore: ${adminController.admin.email}</h1>
+	
+		<h:form>
+		
+		<h1>Benvenuto operatore: ${adminSessionManager.currentAdmin.email}</h1>
 
-		<h2>COSA VUOI FARE:</h2>
+		<h2>Cosa Vuoi Fare?</h2>
 		
 		<div>
 		    <a href='<c:url value="/faces/newProduct.jsp" />'> Inserisci un nuovo prodotto! </a>
@@ -25,9 +28,10 @@
 		</div>
 		
 		<div>
-			<a href='<c:url value="/faces/home.jsp" />'> torna alla home! </a>
+			<h:commandButton value="Logout" action="#{adminController.logoutAdmin}" />
 		</div>
 
+		</h:form>
 	</f:view>
 </body>
 </html>
