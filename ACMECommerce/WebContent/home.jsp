@@ -10,6 +10,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link href="css/jumbotron-narrow.css" rel="stylesheet">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
@@ -17,17 +18,25 @@
 <title>ACMECommerce</title>
 </head>
 <body>
+		<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href='<c:url value="/faces/home.jsp" />'>Home</a></li>
+            <li role="presentation"><a href='<c:url value="/faces/loginCustomer.jsp" />'>Login</a></li>
+            <li role="presentation"><a href='<c:url value="/faces/loginAdmin.jsp" />'>Admin</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ACME Commerce</h3>
+      </div>
+		<div class="jumbotron">
+        <h1>Benvenuti in ACME Commerce</h1>
+        <p class="lead">Registrati gratuitamente per effetuare ordini e acquistare i tuoi prodotti preferiti direttamente dal nostro ricchissimo catalogo</p>
+        <p><a class="btn btn-lg btn-success" href='<c:url value="/faces/signUpCustomer.jsp" />' role="button">Sign up today</a></p>
+      </div>
+      
+      
+      
 	<f:view>
-		<h1>Benvenuto in ACMECommerce!</h1>
-
-		<li><a href='<c:url value="/faces/signUpCustomer.jsp" />'>
-				signUp Customer </a></li>
-		
-		<li><a href='<c:url value="/faces/loginCustomer.jsp" />'> login
-				Customer </a></li>		
-		
-		<li><a href='<c:url value="/faces/loginAdmin.jsp" />'> login
-				Admin </a></li>		
 				
 		<li><h:form>
 				<h:commandLink action="#{productController.listProducts}"
