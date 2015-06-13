@@ -10,7 +10,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-<link href="css/jumbotron-narrow.css" rel="stylesheet">
+<link href="css/home.css" rel="stylesheet">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
@@ -42,15 +42,15 @@
 
 			<div>
 				Password:
-				<h:inputText value="#{customerController.password}" required="true"
+				<h:inputText value="#{customerController.password}" required="true" 
 					requiredMessage="Password is mandatory" id="password" />
 				<h:message for="password" />
 			</div>
-
+			
 			<div>
-				<h:commandButton value="Sign in"
-					action="#{customerController.loginCustomer}" />
-			</div>
+			<h:commandLink action="#{customerController.loginCustomer}">
+					 <p class="btn btn-lg btn-success">Sign in</p> 
+			</h:commandLink></div>
 
 		</h:form>
 
