@@ -6,34 +6,53 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link href="css/home.css" rel="stylesheet">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Home</title>
 </head>
 <body>
+
+
+
 	<f:view>
 	
 		<h:form>
+		<div class="header clearfix">
+		<nav>
+			<ul class="nav nav-pills pull-right">
+				<li role="presentation"><a
+					href='<c:url value="/faces/home.jsp" />'>Home</a></li>
+				<li role="presentation"> <h:commandLink action="#{customerController.logoutCustomer}">Logout
+			</h:commandLink></li>
+				<li role="presentation"><a
+					href='<c:url value="/faces/loginAdmin.jsp" />'>Admin</a></li>
+			</ul>
+		</nav>
+		<h3 class="text-muted">ACME Commerce</h3>
+	</div>
 		
 		<h1>Bentornato in ACMECommerce: ${customerSessionManager.currentCustomer.email}</h1>
 
 		<h2>Cosa Vuoi Fare?</h2>
 		
 		<div>
-		    <a href='<c:url value="/faces/productList.jsp" />'> visualizza i prodotti </a>
+		    <h:commandLink action="#{productController.listProducts}">
+					<p class="btn btn-lg btn-primary">Vai al Catalogo</p>
+			</h:commandLink>
 		</div>
 		
 		<div>
 			<p> visualizza i tuoi ordini </p>
 		</div>
 		
-		<div>
-			<h:commandButton value="Logout" action="#{customerController.logoutCustomer}" />
-		</div>
 		
-		<div>
-			<h:commandButton value="Logout" action="#{customerController.logoutCustomer}" />
-		</div>
 
 		</h:form>
 	</f:view>

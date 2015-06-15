@@ -48,9 +48,13 @@
 			</div>
 
 			<div>
-				<h:commandButton value="Sign in"
-					action="#{adminController.loginAdmin}" />
+				<h:commandButton action="#{adminController.loginAdmin}" style="display: none" />
 			</div>
+			
+			<div>
+			<h:commandLink action="#{adminController.loginAdmin}">
+					 <p class="btn btn-md btn-success">Sign in</p> 
+			</h:commandLink></div>
 
 		</h:form>
 

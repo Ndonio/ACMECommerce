@@ -6,12 +6,37 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link href="css/home.css" rel="stylesheet">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New Product</title>
 </head>
 <body>
 	<f:view>
+		<h:form>
+
+			<div class="header clearfix">
+				<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a
+						href='<c:url value="/faces/home.jsp" />'>Home</a></li>
+					<li role="presentation"><h:commandLink
+							action="#{adminController.logoutAdmin}">Logout
+			</h:commandLink></li>
+					<li role="presentation"><a
+						href='<c:url value="/faces/loginAdmin.jsp" />'>Admin</a></li>
+				</ul>
+				</nav>
+				<h3 class="text-muted">ACME Commerce</h3>
+			</div>
+		</h:form>
+
 		<h:form>
 			<div>
 				Name:
@@ -42,20 +67,27 @@
 			</div>
 
 			<div>
-				<h:commandButton value="Insert Product!"
-					action="#{productController.createProduct}" />
+				<h:commandButton action="#{productController.createProduct}"
+					style="display: none;">
+				</h:commandButton>
 			</div>
 
+			<div>
+				<h:commandLink action="#{productController.createProduct}">
+					<p class="btn btn-md btn-success">Insert Product</p>
+				</h:commandLink>
+			</div>
+
+
 		</h:form>
-		
+
 		<h:form>
-		<div>
-			<h:commandButton value="Logout" action="#{adminController.logoutAdmin}" />
-		    </div>
-		    
-		    <div>
-			<h:commandButton value="Annulla Inserimento" action="adminHome" />
-		    </div>
+
+			<div>
+				<a href=<c:url value="/faces/adminHome.jsp" />
+					class="btn btn-md btn-danger">Annulla Inserimento</a>
+			</div>
+
 		</h:form>
 
 	</f:view>

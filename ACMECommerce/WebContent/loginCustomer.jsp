@@ -48,8 +48,13 @@
 			</div>
 			
 			<div>
+				<h:commandButton action="#{customerController.loginCustomer}" style="display: none;">
+				</h:commandButton>
+			</div>
+			
+			<div>
 			<h:commandLink action="#{customerController.loginCustomer}">
-					 <p class="btn btn-lg btn-success">Sign in</p> 
+					 <p class="btn btn-md btn-success">Sign in</p> 
 			</h:commandLink></div>
 
 		</h:form>

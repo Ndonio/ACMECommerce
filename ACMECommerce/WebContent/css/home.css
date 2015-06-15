@@ -4,6 +4,15 @@ body {
   padding-bottom: 20px;
 }
 
+table, td, th {
+    border: 1px solid black;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
