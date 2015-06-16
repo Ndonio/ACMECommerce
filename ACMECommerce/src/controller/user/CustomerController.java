@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;

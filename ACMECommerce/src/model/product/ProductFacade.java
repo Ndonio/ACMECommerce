@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 @Stateless(name="productFacade")
@@ -21,6 +22,20 @@ public class ProductFacade {
 	
 	public Product getProduct(Long id) {
 	    Product product = this.em.find(Product.class, id);
+		return product;
+	}
+	
+	public Product getProduct(String code) {
+		Product product;
+		Query q= this.em.createQuery("SELECT p FROM Product p WHERE p.code =:code", Product.class);
+		q.setParameter("code", code);
+		try{
+			product =(Product)q.getSingleResult();
+				return product;
+		}
+		catch (Exception e){
+			product = null;
+		}	
 		return product;
 	}
 	

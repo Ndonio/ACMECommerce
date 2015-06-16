@@ -1,10 +1,13 @@
 package model.user;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
 import model.core.Address;
+import model.order.Order;
 
 @Entity
 public class Customer {
@@ -37,6 +40,8 @@ public class Customer {
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
 	private Address address;
 	
+	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.REMOVE}, mappedBy="customer")
+	private List<Order> orders;
 	
 	public Customer(){}
 	
@@ -57,6 +62,7 @@ public class Customer {
 		this.password = password;
 		this.registrationDate = new Date();
 		this.address = address;
+		this.orders = new ArrayList<Order>();
 	}
 	
 	/**
@@ -183,6 +189,20 @@ public class Customer {
 	 */
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	/**
+	 * @return the orders
+	 */
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	/**
+	 * @param orders the orders to set
+	 */
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 }

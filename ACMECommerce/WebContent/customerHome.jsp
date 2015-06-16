@@ -4,7 +4,7 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -19,41 +19,38 @@
 </head>
 <body>
 
-
-
 	<f:view>
-	
+
 		<h:form>
-		<div class="header clearfix">
-		<nav>
-			<ul class="nav nav-pills pull-right">
-				<li role="presentation"><a
-					href='<c:url value="/faces/home.jsp" />'>Home</a></li>
-				<li role="presentation"> <h:commandLink action="#{customerController.logoutCustomer}">Logout
+			<div class="header clearfix">
+				<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a
+						href='<c:url value="/faces/home.jsp" />'>Home</a></li>
+					<li role="presentation"><h:commandLink
+							action="#{customerController.logoutCustomer}">Logout
 			</h:commandLink></li>
-				<li role="presentation"><a
-					href='<c:url value="/faces/loginAdmin.jsp" />'>Admin</a></li>
-			</ul>
-		</nav>
-		<h3 class="text-muted">ACME Commerce</h3>
-	</div>
-		
-		<h1>Bentornato in ACMECommerce: ${customerSessionManager.currentCustomer.email}</h1>
+					
+				</ul>
+				</nav>
+				<h3 class="text-muted">ACME Commerce</h3>
+			</div>
 
-		<h2>Cosa Vuoi Fare?</h2>
-		
-		<div>
-		    <h:commandLink action="#{productController.listProducts}">
-					<p class="btn btn-lg btn-primary">Vai al Catalogo</p>
-			</h:commandLink>
-		</div>
-		
-		<div>
-			<p> visualizza i tuoi ordini </p>
-		</div>
-		
-		
+			<h1>Bentornato in ACMECommerce:
+				${customerSessionManager.currentCustomer.firstname}</h1>
 
+			<h2>Cosa Vuoi Fare?</h2>
+
+			<div>
+				<h:commandButton value="Ordini Effettuati"
+					action="#{orderController.listOrders()}" />
+			</div>
+
+			<div>
+				<h:commandButton value="Nuovo Ordine"
+					action="#{orderController.createOrder()}">
+				</h:commandButton>
+			</div>
 		</h:form>
 	</f:view>
 </body>

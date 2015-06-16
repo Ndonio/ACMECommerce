@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
