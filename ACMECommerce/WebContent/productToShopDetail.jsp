@@ -35,22 +35,32 @@
 				</nav>
 				<h3 class="text-muted">ACME Commerce</h3>
 			</div>
+		</h:form>
+		<h:form>
+			<h1>Product View</h1>
 
-			<h1>Bentornato in ACMECommerce:
-				${customerSessionManager.currentCustomer.firstname}</h1>
+			<h2>Dettagli del prodotto ${orderSessionManager.product.name}:</h2>
+			<div>Name: ${orderSessionManager.product.name}</div>
+			<div>Code: ${orderSessionManager.product.code}</div>
+			<div>Price: ${orderSessionManager.product.price}</div>
+			<div>Description: ${orderSessionManager.product.description}</div>
 
-			<h2>Cosa Vuoi Fare?</h2>
-			
 			<div>
-				<h:commandLink value="Ordini Effettuati"
-					action="#{orderController.listOrders}" />
+				Quantita':
+				<h:inputText id="quantity" value="#{orderController.quantity}"
+					required="true" requiredMessage="Quantity is mandatory"
+					converterMessage="Quantity must be a number!" />
+				<h:message for="quantity" />
 			</div>
 
 			<div>
-				<h:commandLink value="Nuovo Ordine"
-					action="#{orderController.createOrder}"/>
-			</div>
 
+			<h:commandLink action="#{orderController.createOrderLine}"
+								value="Aggiungi Prodotto">
+								<f:param name="quantity" value="#{orderController.quantity}" />
+			</h:commandLink>
+
+			</div>
 		</h:form>
 	</f:view>
 </body>

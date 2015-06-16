@@ -15,7 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Order</title>
+<title>Customer Home</title>
 </head>
 <body>
 
@@ -28,14 +28,14 @@
 						<li role="presentation"><a
 							href='<c:url value="/faces/home.jsp" />'>Home</a></li>
 						<li role="presentation"><h:commandLink
-								action="#{customerController.logoutCustomer}">Logout
+								action="#{customerController.logoutCustomer}"> Logout
 			</h:commandLink></li>
 
 					</ul>
 				</nav>
-
 				<h3 class="text-muted">ACME Commerce</h3>
 			</div>
+
 
 			<h1>${customerSessionManager.currentCustomer.firstname},
 				aggiungi un prodotto</h1>
@@ -43,18 +43,18 @@
 	</f:view>
 
 	<f:view>
-		<h1>Prodotti Aggiunti:</h1>
+		<h1>Lista Prodotti:</h1>
 		<h:form>
 			<table>
 				<tr>
 					<th>Name</th>
 					<th>Price</th>
 				</tr>
-				<c:forEach var="product" items="#{orderController.productList}">
+				<c:forEach var="product" items="#{orderSessionManager.products}">
 					<tr>
-						<td><h:commandLink action="#{productController.findProduct}"
+						<td><h:commandLink action="#{orderController.findProduct}"
 								value="#{product.name}">
-								<f:param name="id" value="#{product.id}" />
+								<f:param name="productId" value="#{product.id}" />
 							</h:commandLink></td>
 						<td>${product.price}</td>
 					</tr>
