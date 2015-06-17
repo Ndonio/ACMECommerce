@@ -41,8 +41,7 @@
 			ricchissimo catalogo</p>
 		<p>
 			<a class="btn btn-lg btn-success"
-				href='<c:url value="/faces/signUpCustomer.jsp" />' role="button">Sign
-				up today</a>
+				href='<c:url value="/faces/signUpCustomer.jsp" />' role="button"> Iscriviti! </a>
 		</p>
 	</div>
 

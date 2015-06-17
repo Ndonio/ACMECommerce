@@ -36,14 +36,14 @@
 			<div>
 				Email:
 				<h:inputText value="#{adminController.email}" required="true"
-					requiredMessage="Email is mandatory" id="email" />
+					requiredMessage="Email obbligatoria" id="email" />
 				<h:message for="email" />
 			</div>
 
 			<div>
 				Password:
 				<h:inputText value="#{adminController.password}" required="true"
-					requiredMessage="Password is mandatory" id="password" />
+					requiredMessage="Password obbligatoria" id="password" />
 				<h:message for="password" />
 			</div>
 

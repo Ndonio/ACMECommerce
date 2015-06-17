@@ -15,7 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Customer</title>
+<title>Login Cliente</title>
 </head>
 <body>
 	<div class="header clearfix">
@@ -31,19 +31,19 @@
 	<f:view>
 		<h:form>
 
-			<h1>Login Customer</h1>
+			<h1>Login Cliente</h1>
 
 			<div>
 				Email:
 				<h:inputText value="#{customerController.email}" required="true"
-					requiredMessage="Email is mandatory" id="email" />
+					requiredMessage="Email necessaria" id="email" />
 				<h:message for="email" />
 			</div>
 
 			<div>
 				Password:
 				<h:inputText value="#{customerController.password}" required="true" 
-					requiredMessage="Password is mandatory" id="password" />
+					requiredMessage="Password necessaria" id="password" />
 				<h:message for="password" />
 			</div>
 			
@@ -54,7 +54,7 @@
 			
 			<div>
 			<h:commandLink action="#{customerController.loginCustomer}">
-					 <p class="btn btn-md btn-success">Sign in</p> 
+					 <p class="btn btn-md btn-success">Login</p> 
 			</h:commandLink></div>
 
 		</h:form>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Product</title>
+<title>ERRORE!</title>
 </head>
 <body>
 	<f:view>
@@ -16,8 +16,7 @@
 
 
 			<div>
-				<p>  OPS! QUALCOSA E' ANDATO STORTO E NOI ANCORA NON ABBIAMO
-					GESTITO GLI ERRORI, TORNA ALLA HOME, TENGHIU'  </p>
+				<p>  OPS! QUALCOSA E' ANDATO STORTO :'( </p>
 			</div>
 
 			<div>

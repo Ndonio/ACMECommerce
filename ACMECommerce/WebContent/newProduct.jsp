@@ -15,7 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Product</title>
+<title>Nuovo Prodotto</title>
 </head>
 <body>
 	<f:view>
@@ -23,15 +23,13 @@
 
 			<div class="header clearfix">
 				<nav>
-				<ul class="nav nav-pills pull-right">
-					<li role="presentation"><a
-						href='<c:url value="/faces/home.jsp" />'>Home</a></li>
-					<li role="presentation"><h:commandLink
-							action="#{adminController.logoutAdmin}">Logout
+					<ul class="nav nav-pills pull-right">
+						<li role="presentation"><a
+							href='<c:url value="/faces/adminHome.jsp" />'>Home</a></li>
+						<li role="presentation"><h:commandLink
+								action="#{adminController.logoutAdmin}">Logout
 			</h:commandLink></li>
-					<li role="presentation"><a
-						href='<c:url value="/faces/loginAdmin.jsp" />'>Admin</a></li>
-				</ul>
+					</ul>
 				</nav>
 				<h3 class="text-muted">ACME Commerce</h3>
 			</div>
@@ -39,29 +37,29 @@
 
 		<h:form>
 			<div>
-				Name:
+				Nome:
 				<h:inputText id="name" value="#{productController.name}"
-					required="true" requiredMessage="name is mandatory" />
+					required="true" requiredMessage="dato obbligatorio" />
 				<h:message for="name" />
 			</div>
 
 			<div>
-				Code:
+				Codice:
 				<h:inputText id="code" value="#{productController.code}"
-					required="true" requiredMessage="code is mandatory" />
+					required="true" requiredMessage="dato obbligatorio" />
 				<h:message for="code" />
 			</div>
 
 			<div>
-				Price:
+				Prezzo:
 				<h:inputText id="price" value="#{productController.price}"
-					required="true" requiredMessage="Price is mandatory"
-					converterMessage="Price must be a number!" />
+					required="true" requiredMessage="obbligatorio!"
+					converterMessage="Deve essere un numero!" />
 				<h:message for="price" />
 			</div>
 
 			<div>
-				Description:
+				Descrizione:
 				<h:inputTextarea value="#{productController.description}"
 					required="false" cols="20" rows="5" />
 			</div>
@@ -74,7 +72,7 @@
 
 			<div>
 				<h:commandLink action="#{productController.createProduct}">
-					<p class="btn btn-md btn-success">Insert Product</p>
+					<p class="btn btn-md btn-success">Inserisci Prodotto</p>
 				</h:commandLink>
 			</div>
 

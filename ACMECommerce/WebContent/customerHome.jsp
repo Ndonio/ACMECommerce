@@ -18,15 +18,13 @@
 <title>Customer Home</title>
 </head>
 <body>
-
 	<f:view>
-
 		<h:form>
 			<div class="header clearfix">
 				<nav>
 					<ul class="nav nav-pills pull-right">
-						<li role="presentation"><a
-							href='<c:url value="/faces/home.jsp" />'>Home</a></li>
+						<li role="presentation" class="active"><a
+							href='<c:url value="/faces/customerHome.jsp" />'>Home</a></li>
 						<li role="presentation"><h:commandLink
 								action="#{customerController.logoutCustomer}">Logout
 			</h:commandLink></li>
@@ -40,7 +38,7 @@
 				${customerSessionManager.currentCustomer.firstname}</h1>
 
 			<h2>Cosa Vuoi Fare?</h2>
-			
+
 			<div>
 				<h:commandButton value="Ordini Effettuati"
 					action="#{orderController.listOrders}" />
@@ -48,7 +46,7 @@
 
 			<div>
 				<h:commandButton value="Nuovo Ordine"
-					action="#{orderController.createOrder}"/>
+					action="#{orderController.createOrder}" />
 			</div>
 
 		</h:form>
