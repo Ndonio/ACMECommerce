@@ -25,7 +25,7 @@ public class AdminController {
 	
 	public String createAdmin(){
 		this.admin = this.adminFacade.createAdmin(email, password);
-		this.session.login(admin);//TODO NEW!
+		this.session.login(admin);
 		return "adminHome";
 	}
 	
@@ -33,7 +33,7 @@ public class AdminController {
 		this.admin = this.adminFacade.retrieveAdmin(email, password);
 		if(this.admin==null)
 			return "loginAdmin";
-		this.session.login(admin);//TODO NEW!
+		this.session.login(admin);
 		return "adminHome";
 	}
 	

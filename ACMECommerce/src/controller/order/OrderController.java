@@ -11,11 +11,9 @@ import controller.user.CustomerSessionManager;
 import controller.order.OrderSessionManager;
 import model.order.Order;
 import model.order.OrderFacade;
-import model.order.OrderLine;
 import model.order.OrderLineFacade;
 import model.product.Product;
 import model.product.ProductFacade;
-import model.user.Customer;
 
 
 @ManagedBean(name="orderController", eager=true)
@@ -28,15 +26,13 @@ public class OrderController {
 	@EJB(beanName="productFacade")
 	private ProductFacade productFacade;
 	
-	//TODO: FIXME: move all on OrderLineController!!!!
 	@EJB(beanName="orderLineFacade")
 	private OrderLineFacade orderLineFacade;
 
 	@ManagedProperty(value="#{param.productId}")
 	private Long productId; 
-//	@ManagedProperty(value="#{param.quantity}")
+	
 	private int quantity;
-	//Fine Da spostare in OrderLineController
 	
 	@ManagedProperty(value="#{param.orderId}")
 	private Long orderId; 

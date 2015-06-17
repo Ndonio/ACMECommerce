@@ -16,9 +16,9 @@ public class OrderSessionManager {
 	private Order currentOrder;
 	
 	private OrderLine orderLine;
-	private List<OrderLine> orderLines;
+	private List<OrderLine> orderLines; //mi serviranno per aggiungere piu linee d'ordine...
 
-	private List<Product> products;
+	private List<Product> products;//da base per le catalogo
 	private Product product;
 	/**
 	 * @return the currentOrder

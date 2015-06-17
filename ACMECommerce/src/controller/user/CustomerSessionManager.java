@@ -13,9 +13,9 @@ import model.user.Customer;
 @SessionScoped
 public class CustomerSessionManager {
 
-	private Customer currentCustomer;
+	private Customer currentCustomer; 
 	
-	private List<Order> orders;
+	private List<Order> orders; //ci carico gli ordini in sessione...
 	
 	private Order order;
 

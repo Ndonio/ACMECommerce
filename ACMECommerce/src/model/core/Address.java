@@ -140,7 +140,6 @@ public class Address {
 	 * Returns a hash code for this Address. The hash code for a Address object is computed as the sum of the 
 	 * hash code of his properties.
 	 * @return hash code value of this address
-	 * @see Object.equals(java.lang.Object), System.identityHashCode(java.lang.Object)  
 	 * */
 	@Override
 	public int hashCode() {
@@ -149,9 +148,6 @@ public class Address {
 	}
 
 	/** 
-	 * Compares this Address to the specified object. 
-	 * The result is true if and only if the argument is not null and is an Address object that contains 
-	 * the same information as this object. 
 	 *@param obj - the object to compare with.
 	 *@return true if the objects are the same; false otherwise. 
 	 **/
