@@ -65,7 +65,7 @@
 
 			<div>
 				Password:
-				<h:SecretText value="#{customerController.password}" required="true"
+				<h:inputSecret value="#{customerController.password}" required="true"
 					requiredMessage="campo obbligatorio" id="password" />
 				<h:message for="password" />
 			</div>
