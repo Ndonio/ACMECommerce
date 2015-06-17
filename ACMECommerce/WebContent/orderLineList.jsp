@@ -26,12 +26,12 @@
 		<h:form>
 			<table>
 				<tr>
-					<th>ID</th>
+					<th>Name</th>
 					<th>Quantity</th>
 				</tr>
 				<c:forEach var="orderLine" items="#{orderSessionManager.orderLines}">
 					<tr>
-						<td>${orderLine.id}</td>
+						<td>${orderLine.product.name}</td>
 						<td>${orderLine.quantity}</td>
 					</tr>
 				</c:forEach>
