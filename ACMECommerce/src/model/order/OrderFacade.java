@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import model.product.Product;
@@ -53,5 +54,12 @@ public class OrderFacade {
 		order.addOrderLine(orderLine);
 		this.em.persist(orderLine);
 		this.em.merge(order);
+	}
+
+	public List<OrderLine> getOrderLines(Long orderId) {
+//		TypedQuery<Order> q = em.createQuery("SELECT o FROM Order o WHERE o.id=:orderid",Order.class);
+//		q.setParameter("orderid", orderId);
+//		return ((Order) q.getSingleResult()).getOrderLines();
+		return this.em.find(Order.class, orderId).getOrderLines();
 	}
 }

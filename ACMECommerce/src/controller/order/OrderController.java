@@ -37,14 +37,20 @@ public class OrderController {
 	private int quantity;
 	//Fine Da spostare in OrderLineController
 	
-	@ManagedProperty(value="#{orderId}")
+	@ManagedProperty(value="#{param.orderId}")
 	private Long orderId; 
-	 
+	
 	@ManagedProperty(value="#{customerSessionManager}")
 	private CustomerSessionManager customerSessionManager;
 
 	@ManagedProperty(value="#{orderSessionManager}")
 	private OrderSessionManager orderSessionManager;
+	
+	public String getOrderLines(){
+		 orderSessionManager.setOrderLines(
+				 this.orderFacade.getOrderLines(orderId));
+		return "orderLineList";
+	}
 
 
 	public String listOrders(){

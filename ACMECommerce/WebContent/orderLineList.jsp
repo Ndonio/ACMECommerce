@@ -14,28 +14,31 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Ordini cliente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Customer Home</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Lista Prodotti Ordinati</title>
 </head>
 <body>
-<f:view>
-	<h2>I tuoi Ordini:</h2>
-	<h:form>
-		<table>
-			<tr>
-				<th>Id Ordine</th>
-				<th>Creato il</th>
-			</tr>
-			<c:forEach var="order" items="#{customerSessionManager.orders}">
+	<f:view>
+		<h1>Lista Prodotti:</h1>
+		<h:form>
+			<table>
 				<tr>
-					<td><h:commandLink value="#{order.id}" action="#{orderController.getOrderLines}">
-						<f:param name="orderId" value="#{order.id}" />
-					</h:commandLink></td>
-					<td>${order.creationDate}</td>
+					<th>ID</th>
+					<th>Quantity</th>
 				</tr>
-			</c:forEach>
-		</table>
-	</h:form>
-</f:view>
+				<c:forEach var="orderLine" items="#{orderSessionManager.orderLines}">
+					<tr>
+						<td>${orderLine.id}</td>
+						<td>${orderLine.quantity}</td>
+					</tr>
+				</c:forEach>
+			</table>
+
+		</h:form>
+	</f:view>
+
 </body>
 </html>
