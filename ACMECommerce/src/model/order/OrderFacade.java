@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import model.product.Product;
 import model.user.Customer;
 
 @Stateless(name="orderFacade")
@@ -22,7 +23,9 @@ public class OrderFacade {
 	public Order createOrder(Long customerId){
 		Customer customer = this.em.find(Customer.class, customerId);
 		Order order = new Order(customer);
+		customer.addOrder(order);
 		this.em.persist(order);
+		this.em.merge(customer);
 		return order;
 	}
 	
@@ -37,12 +40,18 @@ public class OrderFacade {
 	}
 
 	public List<Order> listCustomerOrder(Long customerId) {
-		TypedQuery<Order> q = em.createQuery("SELECT o FROM Order o WHERE o.customer.Id =:customerId",Order.class);
-		q.setParameter("customerId", customerId);
-		List<Order> orders = q.getResultList();
-		return orders;
+          Customer customer = this.em.find(Customer.class, customerId);
+          return customer.getOrders();
+//		TypedQuery<Order> q = em.createQuery("SELECT o FROM Order o WHERE o.customer.Id =:customerId",Order.class);
+//		q.setParameter("customerId", customerId);
+//		List<Order> orders = q.getResultList();
+//		return orders;
 	}
 	
-
-
+	public void addOrderLine(Order order, Product product, int quantity){
+		OrderLine orderLine = new OrderLine(product,quantity);
+		order.addOrderLine(orderLine);
+		this.em.persist(orderLine);
+		this.em.merge(order);
+	}
 }

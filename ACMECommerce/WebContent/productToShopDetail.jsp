@@ -55,12 +55,16 @@
 
 			<div>
 
-			<h:commandLink action="#{orderController.createOrderLine}"
-								value="Aggiungi Prodotto">
-								<f:param name="quantity" value="#{orderController.quantity}" />
-			</h:commandLink>
-
+				<h:commandButton action="#{orderController.createOrderLine}"
+					value="Aggiungi Prodotto">
+					<f:param name="quantity" value="#{orderController.quantity}" />
+				</h:commandButton>
 			</div>
+			<div>
+				<h:commandButton value="Annulla Ordine"
+					action="#{orderController.cancelOrder()}" />
+			</div>
+
 		</h:form>
 	</f:view>
 </body>

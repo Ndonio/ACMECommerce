@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import model.product.Product;
 
@@ -15,7 +14,6 @@ import model.product.Product;
  *
  */
 @Entity
-@Table(name="order_line")
 public class OrderLine {
  
 	@Id

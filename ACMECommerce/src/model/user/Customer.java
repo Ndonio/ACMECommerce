@@ -75,6 +75,10 @@ public class Customer {
 			throw new Exception();
 	}
 	
+	public void addOrder(Order order){
+		this.orders.add(order);
+	}
+	
 	/**
 	 * SETTERS AND GETTERS
 	 **/

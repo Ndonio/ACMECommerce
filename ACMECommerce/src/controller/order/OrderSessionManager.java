@@ -2,8 +2,8 @@ package controller.order;
 
 import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import model.order.Order;
 import model.order.OrderLine;
@@ -12,10 +12,11 @@ import model.product.Product;
 @ManagedBean(name="orderSessionManager")
 @SessionScoped 
 public class OrderSessionManager {
-
+    
 	private Order currentOrder;
 	
 	private OrderLine orderLine;
+	private List<OrderLine> orderLines;
 
 	private List<Product> products;
 	private Product product;
@@ -42,6 +43,18 @@ public class OrderSessionManager {
 	 */
 	public void setOrderLine(OrderLine orderLine) {
 		this.orderLine = orderLine;
+	}
+	/**
+	 * @return the orderLines
+	 */
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+	/**
+	 * @param orderLines the orderLines to set
+	 */
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
 	/**
 	 * @return the products

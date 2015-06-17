@@ -29,7 +29,7 @@ public class Order {
 	@ManyToOne
 	private Customer customer; //Customer - Orders;
 
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(cascade={CascadeType.MERGE},fetch=FetchType.EAGER) // necessari, suggerito a runtime
 	@JoinColumn(name="order_id")
 	private List<OrderLine> orderLines; //Order - OrderLines;
 
@@ -42,8 +42,9 @@ public class Order {
 	}
 	
 	
-	public void addOrderLine(Product product, int quantity) {
-		this.orderLines.add(new OrderLine(product, quantity));
+	public OrderLine addOrderLine(OrderLine orderLineToAdd) {
+		this.orderLines.add(orderLineToAdd);
+		return orderLineToAdd;
 	}
 	
 	/**

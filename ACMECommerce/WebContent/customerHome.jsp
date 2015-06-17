@@ -42,12 +42,12 @@
 			<h2>Cosa Vuoi Fare?</h2>
 			
 			<div>
-				<h:commandLink value="Ordini Effettuati"
+				<h:commandButton value="Ordini Effettuati"
 					action="#{orderController.listOrders}" />
 			</div>
 
 			<div>
-				<h:commandLink value="Nuovo Ordine"
+				<h:commandButton value="Nuovo Ordine"
 					action="#{orderController.createOrder}"/>
 			</div>
 

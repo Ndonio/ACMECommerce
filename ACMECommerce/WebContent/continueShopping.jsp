@@ -28,32 +28,49 @@
 						<li role="presentation"><a
 							href='<c:url value="/faces/home.jsp" />'>Home</a></li>
 						<li role="presentation"><h:commandLink
-								action="#{customerController.logoutCustomer}">Logout
+								action="#{customerController.logoutCustomer}"> Logout
 			</h:commandLink></li>
 
 					</ul>
 				</nav>
 				<h3 class="text-muted">ACME Commerce</h3>
 			</div>
-		</h:form>
 
-		<h1>
-			<b>${customerSessionManager.currentCustomer.firstname}, Aggiungi
-				i prodotti </b>
-		</h1>
 
-		<h:form>
-
-			<div>
-				<h:commandButton value="Aggiungi Prodotto"
-					action="#{orderController.addProduct()}" />
-			</div>
-
-            <div>
-				<h:commandButton value="Annulla Ordine"
-					action="#{orderController.cancelOrder()}" />
-			</div>
+			<h1>${customerSessionManager.currentCustomer.firstname},
+				aggiungi un prodotto</h1>
 		</h:form>
 	</f:view>
+
+	<f:view>
+		<h1>Lista Prodotti Aggiunti:</h1>
+		<h:form>
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+				<c:forEach var="orderLine" items="#{orderSessionManager.orderLines}">
+					<tr>
+						<td>${orderLine.product.name}</td>
+						<td>${orderLine.product.price}</td>
+						<td>${orderLine.quantity}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</h:form>
+	</f:view>
+
+	<div>
+		<h:commandButton value="Aggiungi Prodotto"
+			action="#{orderController.addProduct()}" />
+	</div>
+
+	<div>
+		<h:commandButton value="Annulla Ordine"
+			action="#{orderController.cancelOrder()}" />
+	</div>
+
 </body>
 </html>

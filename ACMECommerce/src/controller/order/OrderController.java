@@ -3,20 +3,21 @@ package controller.order;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 
 import controller.user.CustomerSessionManager;
 import controller.order.OrderSessionManager;
 import model.order.Order;
 import model.order.OrderFacade;
+import model.order.OrderLine;
 import model.order.OrderLineFacade;
 import model.product.Product;
 import model.product.ProductFacade;
 
 
-@ManagedBean(name="orderController")
+@ManagedBean(name="orderController", eager=true)
 @RequestScoped
 public class OrderController {
 
@@ -71,7 +72,16 @@ public class OrderController {
 	}
 
 	public String createOrderLine(){
-		this.orderLineFacade.createOrderLine(this.orderSessionManager.getProduct(), this.quantity);
+		Product product = this.orderSessionManager.getProduct();
+        Order order = this.orderSessionManager.getCurrentOrder();
+        this.orderFacade.addOrderLine(order, product, quantity);
+		return "customerHome";
+	}
+	
+	public String cancelOrder(){
+		Long orderId = this.orderSessionManager.getCurrentOrder().getId();
+		this.orderFacade.removeOrder(orderId);
+		this.orderSessionManager.setCurrentOrder(null);
 		return "customerHome";
 	}
 	

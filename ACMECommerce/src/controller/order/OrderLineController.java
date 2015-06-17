@@ -1,9 +1,9 @@
 package controller.order;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 
 import model.order.OrderLineFacade;
 import model.product.Product;
@@ -30,11 +30,11 @@ public class OrderLineController {
             
 	private int quantity;
 	
-	public String createOrderLine(){
-		Product product = this.productFacade.getProduct(this.productCode);
-		this.orderLineFacade.createOrderLine(product, this.quantity);
-		return "customerHome";
-	}
+//	public String createOrderLine(){
+//		Product product = this.productFacade.getProduct(this.productCode);
+//		this.orderLineFacade.createOrderLine(product, this.quantity);
+//		return "customerHome";
+//	}
 	
 	public String findProduct(){
 		Product product = this.productFacade.getProduct(id);

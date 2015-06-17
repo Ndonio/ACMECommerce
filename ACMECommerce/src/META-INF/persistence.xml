@@ -10,6 +10,8 @@
 		<class>model.user.Customer</class>
 		<class>model.user.Admin</class>
 		<class>model.product.Product</class>
+		<class>model.order.Order</class>
+		<class>model.order.OrderLine</class>
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
 		</properties>
