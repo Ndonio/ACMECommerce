@@ -62,5 +62,9 @@ public class CustomerSessionManager {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+
+	public void setCurrentCustomer(Customer currentCustomer) {
+		this.currentCustomer = currentCustomer;
+	}
 	
 }

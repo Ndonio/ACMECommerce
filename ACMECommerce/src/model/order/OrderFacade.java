@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 
 import model.product.Product;
 import model.user.Customer;
@@ -61,5 +62,16 @@ public class OrderFacade {
 //		q.setParameter("orderid", orderId);
 //		return ((Order) q.getSingleResult()).getOrderLines();
 		return this.em.find(Order.class, orderId).getOrderLines();
+	}
+
+	public List<Order> getAllOrders() {
+		CriteriaQuery<Order> cq = em.getCriteriaBuilder().createQuery(Order.class);
+        cq.select(cq.from(Order.class));
+        List<Order> orders = em.createQuery(cq).getResultList();
+		return orders;
+	}
+
+	public Customer findCostumer(Long costumerID) {
+		return this.em.find(Customer.class,costumerID);
 	}
 }

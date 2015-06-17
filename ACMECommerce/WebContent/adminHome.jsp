@@ -46,7 +46,7 @@
 		</div>
 		
 		<div>
-			<p> gestisci ordini clienti (DA IMPLEMENTARE) </p>
+		    <h:commandButton action="#{orderController.getAllOrders }"  value=" Gestisci gli ordini!" />
 		</div>
 
 		</h:form>

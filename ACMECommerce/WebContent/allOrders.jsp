@@ -15,7 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Ordini cliente</title>
+<title>Orders</title>
 </head>
 <body>
 <f:view>
@@ -28,24 +28,28 @@
         </nav>
         <h3 class="text-muted">ACME Commerce</h3>
       </div>
-      
-	<h2>I tuoi Ordini:</h2>
-	<h:form>
-		<table>
-			<tr>
-				<th>Id Ordine</th>
-				<th>Creato il</th>
-			</tr>
-			<c:forEach var="order" items="#{customerSessionManager.orders}">
+		<h1>Orders</h1>
+		<h:form>
+			<table>
 				<tr>
-					<td><h:commandLink value="#{order.id}" action="#{orderController.getOrderLines}">
-						<f:param name="orderId" value="#{order.id}" />
-					</h:commandLink></td>
+					<th>ID</th>
+					<th>Date</th>
+					<th>CustomerID</th>
+				</tr>
+				<c:forEach var="order" items="#{customerSessionManager.orders}">
+				<tr>
+					<td>${order.id}</td>
 					<td>${order.creationDate}</td>
+					<td><h:commandLink value="#{order.customer.id}" action="#{orderController.getCustomerDetails}">
+						<f:param name="orderId" value="#{order.customer.id}" />
+					</h:commandLink></td>
+					
 				</tr>
 			</c:forEach>
-		</table>
-	</h:form>
-</f:view>
+			</table>
+		</h:form>
+
+
+	</f:view>
 </body>
 </html>

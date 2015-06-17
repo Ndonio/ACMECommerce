@@ -15,6 +15,7 @@ import model.order.OrderLine;
 import model.order.OrderLineFacade;
 import model.product.Product;
 import model.product.ProductFacade;
+import model.user.Customer;
 
 
 @ManagedBean(name="orderController", eager=true)
@@ -46,12 +47,28 @@ public class OrderController {
 	@ManagedProperty(value="#{orderSessionManager}")
 	private OrderSessionManager orderSessionManager;
 	
+	private List<Order> orders;
+	
+	public String getCustomerDetails(){
+		this.customerSessionManager.setCurrentCustomer(this.orderFacade.findCostumer(orderId));
+		return "costumerDetails";
+	}
+	
 	public String getOrderLines(){
 		 orderSessionManager.setOrderLines(
 				 this.orderFacade.getOrderLines(orderId));
 		return "orderLineList";
 	}
+	
+	public String findCostumer() {
+		this.customerSessionManager.setCurrentCustomer(this.orderFacade.findCostumer(orderId));
+		return "costumerDetails";
+	}
 
+	public String getAllOrders() {
+		this.customerSessionManager.setOrders(this.orderFacade.getAllOrders());
+		return "allOrders";
+	}
 
 	public String listOrders(){
 		List<Order> orders = this.orderFacade.listCustomerOrder(this.customerSessionManager.getCurrentCustomer().getId());
@@ -208,6 +225,20 @@ public class OrderController {
 	 */
 	public void setOrderSessionManager(OrderSessionManager orderSessionManager) {
 		this.orderSessionManager = orderSessionManager;
+	}
+
+	/**
+	 * @return the orders
+	 */
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	/**
+	 * @param orders the orders to set
+	 */
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 }

@@ -14,11 +14,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Ordini cliente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Dettagli Cliente</title>
 </head>
 <body>
-<f:view>
+	<f:view>	
 	<div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
@@ -28,24 +28,19 @@
         </nav>
         <h3 class="text-muted">ACME Commerce</h3>
       </div>
-      
-	<h2>I tuoi Ordini:</h2>
-	<h:form>
-		<table>
-			<tr>
-				<th>Id Ordine</th>
-				<th>Creato il</th>
-			</tr>
-			<c:forEach var="order" items="#{customerSessionManager.orders}">
-				<tr>
-					<td><h:commandLink value="#{order.id}" action="#{orderController.getOrderLines}">
-						<f:param name="orderId" value="#{order.id}" />
-					</h:commandLink></td>
-					<td>${order.creationDate}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</h:form>
-</f:view>
+		<h:form>
+			<h1>Dettagli Cliente:</h1>
+
+			<div>Nome: ${customerSessionManager.currentCustomer.firstname }</div>
+			<div>Cognome: ${customerSessionManager.currentCustomer.lastname }</div>
+			<div>Email: ${customerSessionManager.currentCustomer.email }</div>
+			<div>Data di nascita: ${customerSessionManager.currentCustomer.birthday }</div>
+			<div>Data di registrazione: ${customerSessionManager.currentCustomer.registrationDate }</div>
+			<div>Indirizzo: ${customerSessionManager.currentCustomer.address }</div>
+		</h:form>
+
+
+	</f:view>
+
 </body>
 </html>
